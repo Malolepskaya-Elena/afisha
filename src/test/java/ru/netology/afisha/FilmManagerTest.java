@@ -47,4 +47,33 @@ class FilmManagerTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test  // вывод всех фильмов в порядке добавления
+    void shouldFindAll10() {
+        FilmManager manager = new FilmManager();
+
+        String[] moviesListTestData = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        manager.setMoviesList(moviesListTestData);
+        String[] expected = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+
+        manager.findAll();
+        String[] actual = manager.getMoviesList();
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test  // вывод всех фильмов в порядке добавления с пустым массивом
+    void shouldFindAll0() {
+        FilmManager manager = new FilmManager();
+
+        String[] moviesListTestData = new String[] {};
+        manager.setMoviesList(moviesListTestData);
+        String[] expected = new String[] {};
+
+        manager.findAll();
+        String[] actual = manager.getMoviesList();
+
+        assertArrayEquals(expected, actual);
+    }
+
+
 }
